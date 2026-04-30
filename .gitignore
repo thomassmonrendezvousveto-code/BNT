@@ -1,0 +1,27 @@
+# Dépendances
+node_modules
+.pnpm-store
+
+# Build Next.js
+.next
+out
+dist
+coverage
+
+# Variables d'env (à gérer dans Vercel)
+.env
+.env.local
+.env.*.local
+
+# Système
+.DS_Store
+Thumbs.db
+
+# Fichiers temporaires
+_tmp_*
+*.log
+
+# IDE
+.vscode/*
+!.vscode/extensions.json
+.idea

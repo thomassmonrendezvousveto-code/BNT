@@ -1,0 +1,863 @@
+{
+  "version": "1.0",
+  "langue": "fr",
+  "domaines": [
+    "medical",
+    "psychologique",
+    "complexite",
+    "couple",
+    "projection",
+    "soutien"
+  ],
+  "regles_reponses": [
+    {
+      "question_id": "A1",
+      "reponse": "je_vis_une_fausse_couche_en_ce_moment",
+      "cle_moteur": "stade_evenement_en_cours",
+      "domaine": "routage",
+      "points": 0,
+      "sortie_preferee": "parcours_aigu"
+    },
+    {
+      "question_id": "A1",
+      "reponse": "j_ai_vecu_une_fausse_couche_recemment",
+      "cle_moteur": "stade_perte_recente",
+      "domaine": "routage",
+      "points": 0,
+      "sortie_preferee": "post_perte_recent"
+    },
+    {
+      "question_id": "A1",
+      "reponse": "je_cherche_de_l_aide_pour_l_apres",
+      "cle_moteur": "stade_post_perte",
+      "domaine": "routage",
+      "points": 0,
+      "sortie_preferee": "post_perte"
+    },
+    {
+      "question_id": "A1",
+      "reponse": "je_prepare_une_prochaine_grossesse",
+      "cle_moteur": "stade_preconception",
+      "domaine": "projection",
+      "points": 0,
+      "sortie_preferee": "preconception"
+    },
+    {
+      "question_id": "A1",
+      "reponse": "je_suis_le_partenaire",
+      "cle_moteur": "module_partenaire_entree_directe",
+      "domaine": "partenaire",
+      "points": 0,
+      "sortie_preferee": "module_partenaire"
+    },
+    {
+      "question_id": "A4",
+      "reponse": "nouvelle_grossesse_apres_une_perte",
+      "cle_moteur": "grossesse_suivante_fast_track",
+      "domaine": "priorite",
+      "points": 0,
+      "sortie_preferee": "fast_track"
+    },
+    {
+      "question_id": "A5",
+      "reponse": "moi_et_mon_partenaire",
+      "cle_moteur": "module_partenaire_actif",
+      "domaine": "partenaire",
+      "points": 0,
+      "sortie_preferee": "module_partenaire"
+    },
+    {
+      "question_id": "A5",
+      "reponse": "mon_partenaire_repond_pour_lui",
+      "cle_moteur": "module_partenaire_actif",
+      "domaine": "partenaire",
+      "points": 0,
+      "sortie_preferee": "module_partenaire"
+    },
+    {
+      "question_id": "B1",
+      "reponse": "oui",
+      "cle_moteur": "red_flag_saignements_tres_abondants",
+      "domaine": "urgence",
+      "points": 0,
+      "sortie_preferee": "hard_stop"
+    },
+    {
+      "question_id": "B2",
+      "reponse": "oui",
+      "cle_moteur": "red_flag_douleur_intense_ou_aggravee",
+      "domaine": "urgence",
+      "points": 0,
+      "sortie_preferee": "hard_stop"
+    },
+    {
+      "question_id": "B3",
+      "reponse": "oui",
+      "cle_moteur": "red_flag_malaise_vertiges_faiblesse",
+      "domaine": "urgence",
+      "points": 0,
+      "sortie_preferee": "hard_stop"
+    },
+    {
+      "question_id": "B4",
+      "reponse": "oui",
+      "cle_moteur": "red_flag_fievre_ou_frissons",
+      "domaine": "urgence",
+      "points": 0,
+      "sortie_preferee": "hard_stop"
+    },
+    {
+      "question_id": "B5",
+      "reponse": "oui",
+      "cle_moteur": "red_flag_suspicion_geu",
+      "domaine": "urgence",
+      "points": 0,
+      "sortie_preferee": "hard_stop"
+    },
+    {
+      "question_id": "B5",
+      "reponse": "je_ne_sais_pas",
+      "cle_moteur": "suspicion_geu_a_evaluer",
+      "domaine": "medical",
+      "points": 99,
+      "sortie_preferee": "priorite_medicale"
+    },
+    {
+      "question_id": "B6",
+      "reponse": "non",
+      "cle_moteur": "pas_de_professionnel_vu",
+      "domaine": "medical",
+      "points": 2,
+      "sortie_preferee": "priorite_medicale"
+    },
+    {
+      "question_id": "B7",
+      "reponse": "oui",
+      "cle_moteur": "demande_orientation_medicale_immediate",
+      "domaine": "medical",
+      "points": 3,
+      "sortie_preferee": "priorite_medicale"
+    },
+    {
+      "question_id": "C1",
+      "reponse": "non",
+      "cle_moteur": "absence_d_echographie_initiale",
+      "domaine": "medical",
+      "points": 2,
+      "sortie_preferee": "priorite_medicale"
+    },
+    {
+      "question_id": "C2",
+      "reponse": "partiellement",
+      "cle_moteur": "explications_partielles",
+      "domaine": "medical",
+      "points": 1,
+      "sortie_preferee": "priorite_medicale"
+    },
+    {
+      "question_id": "C2",
+      "reponse": "non",
+      "cle_moteur": "pas_de_plan_clair",
+      "domaine": "medical",
+      "points": 2,
+      "sortie_preferee": "priorite_medicale"
+    },
+    {
+      "question_id": "C3",
+      "reponse": "aucune",
+      "cle_moteur": "absence_de_conduite_a_tenir",
+      "domaine": "medical",
+      "points": 2,
+      "sortie_preferee": "priorite_medicale"
+    },
+    {
+      "question_id": "C3",
+      "reponse": "je_ne_sais_pas",
+      "cle_moteur": "absence_de_conduite_a_tenir",
+      "domaine": "medical",
+      "points": 2,
+      "sortie_preferee": "priorite_medicale"
+    },
+    {
+      "question_id": "C4",
+      "reponse": "non",
+      "cle_moteur": "pas_de_suivi_programme",
+      "domaine": "medical",
+      "points": 2,
+      "sortie_preferee": "priorite_medicale"
+    },
+    {
+      "question_id": "C4",
+      "reponse": "je_ne_sais_pas",
+      "cle_moteur": "pas_de_suivi_programme",
+      "domaine": "medical",
+      "points": 2,
+      "sortie_preferee": "priorite_medicale"
+    },
+    {
+      "question_id": "C5",
+      "reponse": "plutot_non",
+      "cle_moteur": "manque_information_medicale",
+      "domaine": "soutien",
+      "points": 1,
+      "sortie_preferee": "module_contenus"
+    },
+    {
+      "question_id": "C5",
+      "reponse": "non",
+      "cle_moteur": "ne_comprend_pas_ce_qui_se_passe",
+      "domaine": "soutien",
+      "points": 2,
+      "sortie_preferee": "module_contenus"
+    },
+    {
+      "question_id": "D2",
+      "reponse": "moderes",
+      "cle_moteur": "saignements_moderes_persistants",
+      "domaine": "medical",
+      "points": 1,
+      "sortie_preferee": "priorite_medicale"
+    },
+    {
+      "question_id": "D2",
+      "reponse": "importants",
+      "cle_moteur": "saignements_importants_sans_hard_stop",
+      "domaine": "medical",
+      "points": 2,
+      "sortie_preferee": "priorite_medicale"
+    },
+    {
+      "question_id": "D2",
+      "reponse": "tres_importants",
+      "cle_moteur": "red_flag_saignements_tres_abondants",
+      "domaine": "urgence",
+      "points": 0,
+      "sortie_preferee": "hard_stop"
+    },
+    {
+      "question_id": "D5",
+      "reponse": "beaucoup",
+      "cle_moteur": "epuisement_physique_marque",
+      "domaine": "medical",
+      "points": 1,
+      "sortie_preferee": "priorite_medicale"
+    },
+    {
+      "question_id": "D5",
+      "reponse": "enormement",
+      "cle_moteur": "epuisement_extreme_ou_ne_mange_plus_ni_ne_dort",
+      "domaine": "medical",
+      "points": 2,
+      "sortie_preferee": "priorite_medicale"
+    },
+    {
+      "question_id": "D6",
+      "reponse": "oui",
+      "cle_moteur": "besoin_d_arret_de_travail_ou_aide_administrative",
+      "domaine": "soutien",
+      "points": 1,
+      "sortie_preferee": "module_aide_pratique"
+    },
+    {
+      "question_id": "E1",
+      "reponse": "tres_triste",
+      "cle_moteur": "detresse_emotionnelle_initiale",
+      "domaine": "psychologique",
+      "points": 1,
+      "sortie_preferee": "priorite_psy"
+    },
+    {
+      "question_id": "E1",
+      "reponse": "anxieuse",
+      "cle_moteur": "detresse_emotionnelle_initiale",
+      "domaine": "psychologique",
+      "points": 1,
+      "sortie_preferee": "priorite_psy"
+    },
+    {
+      "question_id": "E1",
+      "reponse": "submergee",
+      "cle_moteur": "se_sent_submergee",
+      "domaine": "psychologique",
+      "points": 2,
+      "sortie_preferee": "priorite_psy"
+    },
+    {
+      "question_id": "E2",
+      "reponse": "parfois",
+      "cle_moteur": "charge_psychique_globale",
+      "domaine": "psychologique",
+      "points": 1,
+      "sortie_preferee": "priorite_psy"
+    },
+    {
+      "question_id": "E2",
+      "reponse": "souvent",
+      "cle_moteur": "charge_psychique_globale",
+      "domaine": "psychologique",
+      "points": 2,
+      "sortie_preferee": "priorite_psy"
+    },
+    {
+      "question_id": "E2",
+      "reponse": "presque_tout_le_temps",
+      "cle_moteur": "charge_psychique_globale",
+      "domaine": "psychologique",
+      "points": 3,
+      "sortie_preferee": "priorite_psy"
+    },
+    {
+      "question_id": "E3",
+      "reponse": "parfois",
+      "cle_moteur": "crises_d_angoisse",
+      "domaine": "psychologique",
+      "points": 1,
+      "sortie_preferee": "priorite_psy"
+    },
+    {
+      "question_id": "E3",
+      "reponse": "oui",
+      "cle_moteur": "crises_d_angoisse",
+      "domaine": "psychologique",
+      "points": 2,
+      "sortie_preferee": "priorite_psy"
+    },
+    {
+      "question_id": "E4",
+      "reponse": "partiellement",
+      "cle_moteur": "ne_fonctionne_plus_normalement",
+      "domaine": "psychologique",
+      "points": 1,
+      "sortie_preferee": "priorite_psy"
+    },
+    {
+      "question_id": "E4",
+      "reponse": "oui",
+      "cle_moteur": "ne_fonctionne_plus_normalement",
+      "domaine": "psychologique",
+      "points": 2,
+      "sortie_preferee": "priorite_psy"
+    },
+    {
+      "question_id": "E5",
+      "reponse": "beaucoup",
+      "cle_moteur": "se_sent_tres_seule",
+      "domaine": "psychologique",
+      "points": 1,
+      "sortie_preferee": "priorite_psy"
+    },
+    {
+      "question_id": "E5",
+      "reponse": "totalement",
+      "cle_moteur": "se_sent_tres_seule",
+      "domaine": "psychologique",
+      "points": 2,
+      "sortie_preferee": "priorite_psy"
+    },
+    {
+      "question_id": "E6",
+      "reponse": "beaucoup",
+      "cle_moteur": "forte_culpabilite_ou_honte",
+      "domaine": "psychologique",
+      "points": 1,
+      "sortie_preferee": "priorite_psy"
+    },
+    {
+      "question_id": "E6",
+      "reponse": "enormement",
+      "cle_moteur": "forte_culpabilite_ou_honte",
+      "domaine": "psychologique",
+      "points": 2,
+      "sortie_preferee": "priorite_psy"
+    },
+    {
+      "question_id": "E7",
+      "reponse": "oui",
+      "cle_moteur": "peur_forte_d_une_future_grossesse",
+      "domaine": "psychologique",
+      "points": 1,
+      "sortie_preferee": "module_preconception"
+    },
+    {
+      "question_id": "E8",
+      "reponse": "peut_etre",
+      "cle_moteur": "demande_aide_psychologique_maintenant",
+      "domaine": "psychologique",
+      "points": 1,
+      "sortie_preferee": "priorite_psy"
+    },
+    {
+      "question_id": "E8",
+      "reponse": "oui",
+      "cle_moteur": "demande_aide_psychologique_maintenant",
+      "domaine": "psychologique",
+      "points": 2,
+      "sortie_preferee": "priorite_psy"
+    },
+    {
+      "question_id": "F1",
+      "reponse": "non",
+      "cle_moteur": "isolement_relationnel_initial",
+      "domaine": "couple",
+      "points": 1,
+      "sortie_preferee": "module_couple"
+    },
+    {
+      "question_id": "F1",
+      "reponse": "c_est_complique",
+      "cle_moteur": "isolement_relationnel_initial",
+      "domaine": "couple",
+      "points": 1,
+      "sortie_preferee": "module_couple"
+    },
+    {
+      "question_id": "F3",
+      "reponse": "oui",
+      "cle_moteur": "vecu_tres_different_dans_le_couple",
+      "domaine": "couple",
+      "points": 1,
+      "sortie_preferee": "module_couple"
+    },
+    {
+      "question_id": "F4",
+      "reponse": "un_peu",
+      "cle_moteur": "tension_importante_dans_le_couple",
+      "domaine": "couple",
+      "points": 1,
+      "sortie_preferee": "module_couple"
+    },
+    {
+      "question_id": "F4",
+      "reponse": "oui",
+      "cle_moteur": "tension_importante_dans_le_couple",
+      "domaine": "couple",
+      "points": 2,
+      "sortie_preferee": "module_couple"
+    },
+    {
+      "question_id": "F5",
+      "reponse": "peut_etre",
+      "cle_moteur": "partenaire_a_besoin_de_soutien",
+      "domaine": "couple",
+      "points": 1,
+      "sortie_preferee": "module_couple"
+    },
+    {
+      "question_id": "F5",
+      "reponse": "oui",
+      "cle_moteur": "partenaire_a_besoin_de_soutien",
+      "domaine": "couple",
+      "points": 2,
+      "sortie_preferee": "module_couple"
+    },
+    {
+      "question_id": "F6",
+      "reponse": "peut_etre",
+      "cle_moteur": "module_couple_actif",
+      "domaine": "couple",
+      "points": 1,
+      "sortie_preferee": "module_couple"
+    },
+    {
+      "question_id": "F6",
+      "reponse": "oui",
+      "cle_moteur": "module_couple_actif",
+      "domaine": "couple",
+      "points": 2,
+      "sortie_preferee": "module_couple"
+    },
+    {
+      "question_id": "G1",
+      "reponse": "non",
+      "cle_moteur": "deuxieme_perte_ou_plus",
+      "domaine": "complexite",
+      "points": 1,
+      "sortie_preferee": "parcours_complexe"
+    },
+    {
+      "question_id": "G2",
+      "reponse": "1",
+      "cle_moteur": "historique_pertes",
+      "domaine": "complexite",
+      "points": 1,
+      "sortie_preferee": "parcours_complexe"
+    },
+    {
+      "question_id": "G2",
+      "reponse": "2",
+      "cle_moteur": "historique_pertes",
+      "domaine": "complexite",
+      "points": 3,
+      "sortie_preferee": "parcours_complexe"
+    },
+    {
+      "question_id": "G2",
+      "reponse": "3_ou_plus",
+      "cle_moteur": "historique_pertes",
+      "domaine": "complexite",
+      "points": 4,
+      "sortie_preferee": "parcours_complexe"
+    },
+    {
+      "question_id": "G3",
+      "reponse": "oui",
+      "cle_moteur": "parcours_pma",
+      "domaine": "complexite",
+      "points": 2,
+      "sortie_preferee": "parcours_complexe"
+    },
+    {
+      "question_id": "G4",
+      "reponse": "oui",
+      "cle_moteur": "facteur_de_risque_medical_connu",
+      "domaine": "complexite",
+      "points": 1,
+      "sortie_preferee": "parcours_complexe"
+    },
+    {
+      "question_id": "G4",
+      "reponse": "je_ne_sais_pas",
+      "cle_moteur": "facteur_de_risque_medical_connu",
+      "domaine": "complexite",
+      "points": 1,
+      "sortie_preferee": "parcours_complexe"
+    },
+    {
+      "question_id": "G5",
+      "reponse": "non",
+      "cle_moteur": "aucun_suivi_specialise_en_place",
+      "domaine": "complexite",
+      "points": 1,
+      "sortie_preferee": "parcours_complexe"
+    },
+    {
+      "question_id": "G6",
+      "reponse": "oui",
+      "cle_moteur": "antecedents_perinataux_ou_psychiatriques",
+      "domaine": "complexite",
+      "points": 2,
+      "sortie_preferee": "parcours_complexe"
+    },
+    {
+      "question_id": "H1",
+      "reponse": "oui",
+      "cle_moteur": "souhaite_reessayer_bientot",
+      "domaine": "projection",
+      "points": 1,
+      "sortie_preferee": "module_preconception"
+    },
+    {
+      "question_id": "H2",
+      "reponse": "oui",
+      "cle_moteur": "temporisation_souhaitee",
+      "domaine": "projection",
+      "points": 0,
+      "sortie_preferee": "temporisation"
+    },
+    {
+      "question_id": "H3",
+      "reponse": "peut_etre",
+      "cle_moteur": "demande_consultation_preconception",
+      "domaine": "projection",
+      "points": 1,
+      "sortie_preferee": "module_preconception"
+    },
+    {
+      "question_id": "H3",
+      "reponse": "oui",
+      "cle_moteur": "demande_consultation_preconception",
+      "domaine": "projection",
+      "points": 2,
+      "sortie_preferee": "module_preconception"
+    },
+    {
+      "question_id": "H4",
+      "reponse": "oui",
+      "cle_moteur": "souhaite_fast_track_future_grossesse",
+      "domaine": "projection",
+      "points": 1,
+      "sortie_preferee": "module_fast_track_futur"
+    },
+    {
+      "question_id": "P3",
+      "reponse": "parfois",
+      "cle_moteur": "partenaire_sans_place",
+      "domaine": "couple",
+      "points": 1,
+      "sortie_preferee": "module_partenaire"
+    },
+    {
+      "question_id": "P3",
+      "reponse": "oui",
+      "cle_moteur": "partenaire_sans_place",
+      "domaine": "couple",
+      "points": 2,
+      "sortie_preferee": "module_partenaire"
+    },
+    {
+      "question_id": "P4",
+      "reponse": "peut_etre",
+      "cle_moteur": "demande_entretien_partenaire_dedie",
+      "domaine": "couple",
+      "points": 1,
+      "sortie_preferee": "module_partenaire"
+    },
+    {
+      "question_id": "P4",
+      "reponse": "oui",
+      "cle_moteur": "demande_entretien_partenaire_dedie",
+      "domaine": "couple",
+      "points": 2,
+      "sortie_preferee": "module_partenaire"
+    }
+  ],
+  "regles_composees": [
+    {
+      "id": "RG001",
+      "type": "forcage_medical",
+      "si_toutes": [
+        {
+          "question_id": "A3",
+          "dans": [
+            "non",
+            "en_cours_de_confirmation"
+          ]
+        },
+        {
+          "question_id": "C1",
+          "dans": [
+            "non"
+          ]
+        }
+      ],
+      "effet": {
+        "orientation_forcee": "priorite_medicale",
+        "cle": "diagnostic_non_confirme_sans_imagerie",
+        "professionnel": "BNT gynécologue-obstétricien référent",
+        "delai": "24 h à 72 h"
+      }
+    },
+    {
+      "id": "RG002",
+      "type": "forcage_psy",
+      "si_toutes": [
+        {
+          "question_id": "E2",
+          "dans": [
+            "presque_tout_le_temps"
+          ]
+        },
+        {
+          "question_id": "E4",
+          "dans": [
+            "oui"
+          ]
+        }
+      ],
+      "effet": {
+        "orientation_forcee": "priorite_psychologique",
+        "cle": "trigger_severite_psy",
+        "professionnel": "BNT psychologue périnatal",
+        "delai": "24 h"
+      }
+    },
+    {
+      "id": "RG003",
+      "type": "module_couple",
+      "si_toutes": [
+        {
+          "question_id": "F2",
+          "dans": [
+            "oui"
+          ]
+        },
+        {
+          "question_id": "F1",
+          "dans": [
+            "non",
+            "c_est_complique"
+          ]
+        }
+      ],
+      "effet": {
+        "module": "module_partenaire",
+        "cle": "partenaire_non_inclus_mais_souhaite"
+      }
+    },
+    {
+      "id": "RG004",
+      "type": "risque_flottement",
+      "si_toutes": [
+        {
+          "question_id": "C3",
+          "dans": [
+            "attente",
+            "traitement_medicamenteux"
+          ]
+        },
+        {
+          "question_id": "C4",
+          "dans": [
+            "non",
+            "je_ne_sais_pas"
+          ]
+        }
+      ],
+      "effet": {
+        "ajouter_points": {
+          "medical": 1
+        },
+        "cle": "attente_ou_traitement_sans_check_in"
+      }
+    },
+    {
+      "id": "RG005",
+      "type": "check_in_rapproche",
+      "si_toutes": [
+        {
+          "question_id": "D3",
+          "dans": [
+            "non"
+          ]
+        },
+        {
+          "question_id": "D4",
+          "dans": [
+            "non"
+          ]
+        }
+      ],
+      "effet": {
+        "ajouter_points": {
+          "medical": 1
+        },
+        "cle": "ne_dort_plus_et_ne_mange_plus"
+      }
+    },
+    {
+      "id": "RG006",
+      "type": "fast_track",
+      "si_toutes": [
+        {
+          "question_id": "A4",
+          "dans": [
+            "nouvelle_grossesse_apres_une_perte"
+          ]
+        }
+      ],
+      "effet": {
+        "orientation_forcee": "grossesse_suivante_fast_track",
+        "cle": "grossesse_suivante_fast_track",
+        "professionnel": "BNT gynécologue-obstétricien référent",
+        "delai": "24 h à 72 h"
+      }
+    }
+  ],
+  "seuils": {
+    "medical": {
+      "priorite_medicale": 5
+    },
+    "psychologique": {
+      "priorite_psychologique": 6
+    },
+    "complexite": {
+      "parcours_complexe_ou_recurrent": 4
+    },
+    "couple": {
+      "module_couple_prioritaire": 3
+    },
+    "projection": {
+      "module_preconception": 2,
+      "condition_bloquante_question": "H2",
+      "valeur_bloquante": "oui"
+    }
+  },
+  "sorties": {
+    "urgence_medicale": {
+      "ordre": 1,
+      "professionnel_principal": "Urgences / gynécologie / maternité",
+      "delai": "immédiat",
+      "message": "Vos réponses indiquent qu’une évaluation médicale urgente est nécessaire.",
+      "actions": [
+        "afficher_ecran_urgence",
+        "stop_questionnaire_standard",
+        "montrer_signes_alerte",
+        "proposer_numero_urgence"
+      ]
+    },
+    "grossesse_suivante_fast_track": {
+      "ordre": 2,
+      "professionnel_principal": "BNT gynécologue-obstétricien référent",
+      "delai": "24 h à 72 h",
+      "message": "Vous êtes dans une nouvelle grossesse après une perte. Le fast track Baby Next Time s’active.",
+      "actions": [
+        "planifier_rdv_rapide",
+        "activer_reassurance",
+        "proposer_suivi_psy_si_besoin"
+      ]
+    },
+    "priorite_medicale": {
+      "ordre": 3,
+      "professionnel_principal": "BNT gynécologue-obstétricien référent ou sage-femme de parcours",
+      "delai": "24 h à 72 h",
+      "message": "Un cadrage médical rapide est recommandé.",
+      "actions": [
+        "prise_rdv_medical",
+        "envoyer_kit_clinique",
+        "ouvrir_check_in_care_manager"
+      ]
+    },
+    "priorite_psychologique": {
+      "ordre": 4,
+      "professionnel_principal": "BNT psychologue périnatal",
+      "delai": "24 h à 72 h",
+      "message": "Un soutien psychologique rapide est recommandé.",
+      "actions": [
+        "prise_rdv_psy",
+        "envoyer_ressources_apaisement",
+        "ouvrir_check_in_care_manager"
+      ]
+    },
+    "parcours_complexe_ou_recurrent": {
+      "ordre": 5,
+      "professionnel_principal": "BNT consultation spécialisée récidives",
+      "delai": "7 j à 15 j",
+      "message": "Votre situation relève d’un parcours renforcé ou spécialisé.",
+      "actions": [
+        "orientation_specialisee",
+        "preparer_dossier_medical",
+        "ouvrir_module_preconception_si_pertinent"
+      ]
+    },
+    "preconception": {
+      "ordre": 6,
+      "professionnel_principal": "BNT gynécologue-obstétricien référent",
+      "delai": "7 j à 15 j",
+      "message": "Une consultation de réassurance / préconception est adaptée.",
+      "actions": [
+        "prise_rdv_preconception",
+        "envoyer_questions_preconsultation"
+      ]
+    },
+    "parcours_coordonne_standard": {
+      "ordre": 7,
+      "professionnel_principal": "BNT care manager",
+      "delai": "sous 7 j",
+      "message": "Un parcours coordonné standard est adapté à votre situation.",
+      "actions": [
+        "ouvrir_timeline_standard",
+        "envoyer_kit_standard",
+        "proposer_groupe_de_parole"
+      ]
+    }
+  },
+  "ordre_priorite": [
+    "urgence_medicale",
+    "grossesse_suivante_fast_track",
+    "priorite_medicale",
+    "priorite_psychologique",
+    "parcours_complexe_ou_recurrent",
+    "preconception",
+    "parcours_coordonne_standard"
+  ]
+}

@@ -1,0 +1,170 @@
+openapi: 3.1.0
+info:
+  title: API Baby Next Time - Orientation de parcours
+  version: 1.0.0
+  description: API MVP pour le questionnaire d'entrée et le moteur d'orientation Baby Next Time.
+servers:
+  - url: https://api.babynexttime.fr
+paths:
+  /v1/questionnaire/config:
+    get:
+      summary: Récupérer la configuration du questionnaire front
+      responses:
+        '200':
+          description: Configuration renvoyée avec succès
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ConfigurationQuestionnaire'
+  /v1/questionnaire/evaluer:
+    post:
+      summary: Évaluer les réponses et renvoyer l'orientation
+      requestBody:
+        required: true
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/RequeteEvaluation'
+      responses:
+        '200':
+          description: Résultat du moteur d'orientation
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ResultatEvaluation'
+  /v1/parcours/timeline:
+    post:
+      summary: Générer une timeline personnalisée
+      requestBody:
+        required: true
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/RequeteTimeline'
+      responses:
+        '200':
+          description: Timeline générée
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/TimelinePersonnalisee'
+  /v1/orientations/rendez-vous:
+    post:
+      summary: Créer une demande de rappel ou de rendez-vous
+      requestBody:
+        required: true
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/RequeteActivation'
+      responses:
+        '202':
+          description: Demande enregistrée
+components:
+  schemas:
+    ConfigurationQuestionnaire:
+      type: object
+      properties:
+        version:
+          type: string
+        langue:
+          type: string
+        nom:
+          type: string
+        duree_estimee_minutes:
+          type: integer
+        questions:
+          type: array
+          items:
+            $ref: '#/components/schemas/Question'
+    Question:
+      type: object
+      properties:
+        id: { type: string }
+        bloc: { type: string }
+        etape: { type: string }
+        type: { type: string }
+        libelle: { type: string }
+        options:
+          type: array
+          items: { type: string }
+        obligatoire: { type: boolean }
+    RequeteEvaluation:
+      type: object
+      required: [session_id, reponses]
+      properties:
+        session_id: { type: string }
+        reponses:
+          type: object
+          additionalProperties:
+            oneOf:
+              - type: string
+              - type: number
+              - type: 'null'
+        contexte:
+          type: object
+          properties:
+            source: { type: string, enum: [web, mobile, professionnel, partenaire] }
+            partenaire_inclus: { type: boolean }
+    ResultatEvaluation:
+      type: object
+      properties:
+        orientation_principale: { type: string }
+        scores:
+          type: object
+          additionalProperties: { type: number }
+        hard_stops:
+          type: array
+          items: { type: string }
+        forcages:
+          type: array
+          items: { type: string }
+        modules_secondaires:
+          type: array
+          items:
+            type: object
+            properties:
+              code: { type: string }
+              actif: { type: boolean }
+        professionnel_principal: { type: string }
+        delai: { type: string }
+        message: { type: string }
+        actions:
+          type: array
+          items: { type: string }
+        cles_declenchees:
+          type: array
+          items: { type: string }
+    RequeteTimeline:
+      type: object
+      required: [orientation_principale, date_reference]
+      properties:
+        orientation_principale: { type: string }
+        modules_secondaires:
+          type: array
+          items: { type: string }
+        date_reference:
+          type: string
+          format: date
+    TimelinePersonnalisee:
+      type: object
+      properties:
+        jalons:
+          type: array
+          items:
+            type: object
+            properties:
+              code: { type: string }
+              libelle: { type: string }
+              date_cible: { type: string, format: date }
+              professionnel: { type: string }
+    RequeteActivation:
+      type: object
+      required: [session_id, orientation_principale, mode]
+      properties:
+        session_id: { type: string }
+        orientation_principale: { type: string }
+        mode: { type: string, enum: [demande_rappel, prise_rdv, email_kit, invitation_partenaire] }
+        disponibilites:
+          type: array
+          items: { type: string }

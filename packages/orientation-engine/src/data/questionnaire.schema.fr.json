@@ -1,0 +1,757 @@
+{
+  "version": "1.0",
+  "langue": "fr",
+  "nom": "BNT Care Path Finder",
+  "duree_estimee_minutes": 8,
+  "questions": [
+    {
+      "id": "A1",
+      "bloc": "A",
+      "etape": "Positionnement",
+      "type": "choix_unique",
+      "libelle": "Aujourd'hui, pourquoi venez-vous sur Baby Next Time ?",
+      "options": [
+        "j_ai_vecu_une_fausse_couche_recemment",
+        "je_cherche_de_l_aide_pour_l_apres",
+        "je_prepare_une_prochaine_grossesse",
+        "je_suis_le_partenaire",
+        "autre"
+      ],
+      "obligatoire": true
+    },
+    {
+      "id": "A2",
+      "bloc": "A",
+      "etape": "Positionnement",
+      "type": "choix_unique",
+      "libelle": "Êtes-vous enceinte actuellement ?",
+      "options": [
+        "oui",
+        "non",
+        "je_ne_sais_pas"
+      ],
+      "obligatoire": true
+    },
+    {
+      "id": "A3",
+      "bloc": "A",
+      "etape": "Positionnement",
+      "type": "choix_unique",
+      "libelle": "Avez-vous déjà reçu un diagnostic médical de fausse couche ?",
+      "options": [
+        "oui",
+        "non",
+        "en_cours_de_confirmation"
+      ],
+      "obligatoire": true
+    },
+    {
+      "id": "A4",
+      "bloc": "A",
+      "etape": "Positionnement",
+      "type": "choix_unique",
+      "libelle": "À quel moment de votre parcours vous situez-vous aujourd'hui ?",
+      "options": [
+        "moins_de_15_jours",
+        "entre_15_jours_et_3_mois",
+        "plus_de_3_mois",
+        "nouvelle_grossesse_apres_une_perte"
+      ],
+      "obligatoire": true
+    },
+    {
+      "id": "A5",
+      "bloc": "A",
+      "etape": "Positionnement",
+      "type": "choix_unique",
+      "libelle": "Souhaitez-vous répondre pour vous uniquement ou inclure aussi votre partenaire dans le parcours ?",
+      "options": [
+        "moi_uniquement",
+        "moi_et_mon_partenaire",
+        "mon_partenaire_repond_pour_lui",
+        "je_ne_sais_pas_encore"
+      ],
+      "obligatoire": true
+    },
+    {
+      "id": "C1",
+      "bloc": "C",
+      "etape": "Cadre médical",
+      "type": "choix_unique",
+      "libelle": "Avez-vous déjà eu une échographie pour cette grossesse ou cet épisode ?",
+      "options": [
+        "oui",
+        "non"
+      ],
+      "obligatoire": true,
+      "condition_affichage": {
+        "A1": [
+          "je_vis_une_fausse_couche_en_ce_moment",
+          "j_ai_vecu_une_fausse_couche_recemment",
+          "je_cherche_de_l_aide_pour_l_apres",
+          "autre"
+        ]
+      }
+    },
+    {
+      "id": "C2",
+      "bloc": "C",
+      "etape": "Cadre médical",
+      "type": "choix_unique",
+      "libelle": "Un professionnel vous a-t-il expliqué clairement ce qui se passe ?",
+      "options": [
+        "oui_clairement",
+        "partiellement",
+        "non"
+      ],
+      "obligatoire": true,
+      "condition_affichage": {
+        "A1": [
+          "je_vis_une_fausse_couche_en_ce_moment",
+          "j_ai_vecu_une_fausse_couche_recemment",
+          "je_cherche_de_l_aide_pour_l_apres",
+          "autre"
+        ]
+      }
+    },
+    {
+      "id": "C3",
+      "bloc": "C",
+      "etape": "Cadre médical",
+      "type": "choix_unique",
+      "libelle": "Quelle prise en charge vous a été proposée jusqu'ici ?",
+      "options": [
+        "attente",
+        "traitement_medicamenteux",
+        "geste_chirurgical",
+        "aucune",
+        "je_ne_sais_pas"
+      ],
+      "obligatoire": true,
+      "condition_affichage": {
+        "A1": [
+          "je_vis_une_fausse_couche_en_ce_moment",
+          "j_ai_vecu_une_fausse_couche_recemment",
+          "autre"
+        ]
+      }
+    },
+    {
+      "id": "C4",
+      "bloc": "C",
+      "etape": "Cadre médical",
+      "type": "choix_unique",
+      "libelle": "Avez-vous un rendez-vous de contrôle déjà prévu ?",
+      "options": [
+        "oui",
+        "non",
+        "je_ne_sais_pas"
+      ],
+      "obligatoire": true,
+      "condition_affichage": {
+        "A1": [
+          "je_vis_une_fausse_couche_en_ce_moment",
+          "j_ai_vecu_une_fausse_couche_recemment",
+          "autre"
+        ]
+      }
+    },
+    {
+      "id": "C5",
+      "bloc": "C",
+      "etape": "Cadre médical",
+      "type": "choix_unique",
+      "libelle": "Vous sentez-vous suffisamment informée sur la suite médicale ?",
+      "options": [
+        "oui",
+        "plutot_oui",
+        "plutot_non",
+        "non"
+      ],
+      "obligatoire": true,
+      "condition_affichage": {
+        "A1": [
+          "je_vis_une_fausse_couche_en_ce_moment",
+          "j_ai_vecu_une_fausse_couche_recemment",
+          "je_cherche_de_l_aide_pour_l_apres",
+          "autre"
+        ]
+      }
+    },
+    {
+      "id": "D1",
+      "bloc": "D",
+      "etape": "Vécu physique",
+      "type": "echelle_numerique",
+      "libelle": "Comment évalueriez-vous votre douleur aujourd'hui ?",
+      "min": 0,
+      "max": 10,
+      "obligatoire": true
+    },
+    {
+      "id": "D2",
+      "bloc": "D",
+      "etape": "Vécu physique",
+      "type": "choix_unique",
+      "libelle": "Comment se passent vos saignements aujourd'hui ?",
+      "options": [
+        "absents",
+        "legers",
+        "moderes",
+        "importants",
+        "tres_importants"
+      ],
+      "obligatoire": true
+    },
+    {
+      "id": "D3",
+      "bloc": "D",
+      "etape": "Vécu physique",
+      "type": "choix_unique",
+      "libelle": "Dormez-vous suffisamment depuis cet événement ?",
+      "options": [
+        "oui",
+        "plutot_oui",
+        "plutot_non",
+        "non"
+      ],
+      "obligatoire": true
+    },
+    {
+      "id": "D4",
+      "bloc": "D",
+      "etape": "Vécu physique",
+      "type": "choix_unique",
+      "libelle": "Avez-vous réussi à manger et à vous hydrater correctement ?",
+      "options": [
+        "oui",
+        "partiellement",
+        "non"
+      ],
+      "obligatoire": true
+    },
+    {
+      "id": "D5",
+      "bloc": "D",
+      "etape": "Vécu physique",
+      "type": "choix_unique",
+      "libelle": "Vous sentez-vous physiquement épuisée ?",
+      "options": [
+        "pas_du_tout",
+        "un_peu",
+        "beaucoup",
+        "enormement"
+      ],
+      "obligatoire": true
+    },
+    {
+      "id": "D6",
+      "bloc": "D",
+      "etape": "Vécu physique",
+      "type": "choix_unique",
+      "libelle": "Avez-vous besoin d'un arrêt, de repos ou d'une adaptation de votre quotidien ?",
+      "options": [
+        "oui",
+        "non",
+        "je_ne_sais_pas"
+      ],
+      "obligatoire": true
+    },
+    {
+      "id": "E1",
+      "bloc": "E",
+      "etape": "Retentissement émotionnel",
+      "type": "choix_unique",
+      "libelle": "Comment vous sentez-vous émotionnellement aujourd'hui ?",
+      "options": [
+        "plutot_stable",
+        "triste",
+        "tres_triste",
+        "anxieuse",
+        "submergee",
+        "autre"
+      ],
+      "obligatoire": true
+    },
+    {
+      "id": "E2",
+      "bloc": "E",
+      "etape": "Retentissement émotionnel",
+      "type": "choix_unique",
+      "libelle": "Avez-vous des moments où tout vous semble trop lourd à porter ?",
+      "options": [
+        "jamais",
+        "parfois",
+        "souvent",
+        "presque_tout_le_temps"
+      ],
+      "obligatoire": true
+    },
+    {
+      "id": "E3",
+      "bloc": "E",
+      "etape": "Retentissement émotionnel",
+      "type": "choix_unique",
+      "libelle": "Avez-vous des crises d'angoisse, des montées de panique ou un sentiment d'effondrement ?",
+      "options": [
+        "oui",
+        "non",
+        "parfois"
+      ],
+      "obligatoire": true
+    },
+    {
+      "id": "E4",
+      "bloc": "E",
+      "etape": "Retentissement émotionnel",
+      "type": "choix_unique",
+      "libelle": "Avez-vous l'impression de ne plus réussir à fonctionner normalement au quotidien ?",
+      "options": [
+        "oui",
+        "non",
+        "partiellement"
+      ],
+      "obligatoire": true
+    },
+    {
+      "id": "E5",
+      "bloc": "E",
+      "etape": "Retentissement émotionnel",
+      "type": "choix_unique",
+      "libelle": "Vous sentez-vous seule dans ce que vous traversez ?",
+      "options": [
+        "pas_du_tout",
+        "un_peu",
+        "beaucoup",
+        "totalement"
+      ],
+      "obligatoire": true
+    },
+    {
+      "id": "E6",
+      "bloc": "E",
+      "etape": "Retentissement émotionnel",
+      "type": "choix_unique",
+      "libelle": "Ressentez-vous de la culpabilité ?",
+      "options": [
+        "pas_du_tout",
+        "un_peu",
+        "beaucoup",
+        "enormement"
+      ],
+      "obligatoire": true
+    },
+    {
+      "id": "E7",
+      "bloc": "E",
+      "etape": "Retentissement émotionnel",
+      "type": "choix_unique",
+      "libelle": "Avez-vous peur d'une prochaine grossesse ou de revivre cela ?",
+      "options": [
+        "oui",
+        "non",
+        "je_ne_sais_pas_encore"
+      ],
+      "obligatoire": true
+    },
+    {
+      "id": "E8",
+      "bloc": "E",
+      "etape": "Retentissement émotionnel",
+      "type": "choix_unique",
+      "libelle": "Souhaitez-vous parler rapidement à un psychologue formé à la périnatalité ?",
+      "options": [
+        "oui",
+        "non",
+        "peut_etre"
+      ],
+      "obligatoire": true
+    },
+    {
+      "id": "F1",
+      "bloc": "F",
+      "etape": "Couple et entourage",
+      "type": "choix_unique",
+      "libelle": "Êtes-vous actuellement accompagnée par votre partenaire ou par une personne proche ?",
+      "options": [
+        "oui",
+        "non",
+        "c_est_complique"
+      ],
+      "obligatoire": true
+    },
+    {
+      "id": "F2",
+      "bloc": "F",
+      "etape": "Couple et entourage",
+      "type": "choix_unique",
+      "libelle": "Souhaitez-vous que votre partenaire ait une place explicite dans le parcours Baby Next Time ?",
+      "options": [
+        "oui",
+        "non",
+        "peut_etre_plus_tard"
+      ],
+      "obligatoire": true,
+      "condition_affichage": {
+        "F1": [
+          "oui",
+          "c_est_complique"
+        ]
+      }
+    },
+    {
+      "id": "F3",
+      "bloc": "F",
+      "etape": "Couple et entourage",
+      "type": "choix_unique",
+      "libelle": "Avez-vous le sentiment que vous vivez cela très différemment dans le couple ?",
+      "options": [
+        "oui",
+        "non",
+        "je_ne_sais_pas"
+      ],
+      "obligatoire": true,
+      "condition_affichage": {
+        "F1": [
+          "oui",
+          "c_est_complique"
+        ]
+      }
+    },
+    {
+      "id": "F4",
+      "bloc": "F",
+      "etape": "Couple et entourage",
+      "type": "choix_unique",
+      "libelle": "Cette épreuve crée-t-elle des tensions, du silence ou de l'incompréhension dans votre couple ?",
+      "options": [
+        "oui",
+        "non",
+        "un_peu"
+      ],
+      "obligatoire": true,
+      "condition_affichage": {
+        "F1": [
+          "oui",
+          "c_est_complique"
+        ]
+      }
+    },
+    {
+      "id": "F5",
+      "bloc": "F",
+      "etape": "Couple et entourage",
+      "type": "choix_unique",
+      "libelle": "Pensez-vous que votre partenaire aurait lui aussi besoin d'être écouté ou accompagné ?",
+      "options": [
+        "oui",
+        "non",
+        "peut_etre"
+      ],
+      "obligatoire": true,
+      "condition_affichage": {
+        "F1": [
+          "oui",
+          "c_est_complique"
+        ]
+      }
+    },
+    {
+      "id": "F6",
+      "bloc": "F",
+      "etape": "Couple et entourage",
+      "type": "choix_unique",
+      "libelle": "Souhaitez-vous qu'on vous propose un temps d'échange à deux ?",
+      "options": [
+        "oui",
+        "non",
+        "peut_etre"
+      ],
+      "obligatoire": true,
+      "condition_affichage": {
+        "F1": [
+          "oui",
+          "c_est_complique"
+        ]
+      }
+    },
+    {
+      "id": "G1",
+      "bloc": "G",
+      "etape": "Complexité clinique",
+      "type": "choix_unique",
+      "libelle": "Est-ce la première fois que vous vivez une fausse couche ?",
+      "options": [
+        "oui",
+        "non"
+      ],
+      "obligatoire": true
+    },
+    {
+      "id": "G2",
+      "bloc": "G",
+      "etape": "Complexité clinique",
+      "type": "choix_unique",
+      "libelle": "Combien de pertes de grossesse avez-vous déjà vécues ?",
+      "options": [
+        "0",
+        "1",
+        "2",
+        "3_ou_plus"
+      ],
+      "obligatoire": true,
+      "condition_affichage": {
+        "G1": [
+          "non"
+        ]
+      }
+    },
+    {
+      "id": "G3",
+      "bloc": "G",
+      "etape": "Complexité clinique",
+      "type": "choix_unique",
+      "libelle": "Un parcours PMA fait-il partie de votre histoire actuelle ou récente ?",
+      "options": [
+        "oui",
+        "non"
+      ],
+      "obligatoire": true
+    },
+    {
+      "id": "G4",
+      "bloc": "G",
+      "etape": "Complexité clinique",
+      "type": "choix_unique",
+      "libelle": "Avez-vous des antécédents médicaux ou gynécologiques qui vous inquiètent pour la suite ?",
+      "options": [
+        "oui",
+        "non",
+        "je_ne_sais_pas"
+      ],
+      "obligatoire": true
+    },
+    {
+      "id": "G5",
+      "bloc": "G",
+      "etape": "Complexité clinique",
+      "type": "choix_unique",
+      "libelle": "Êtes-vous déjà suivie par un gynécologue, une sage-femme ou un centre spécialisé ?",
+      "options": [
+        "oui",
+        "non"
+      ],
+      "obligatoire": true
+    },
+    {
+      "id": "G6",
+      "bloc": "G",
+      "etape": "Complexité clinique",
+      "type": "choix_unique",
+      "libelle": "Avez-vous déjà connu un épisode d'anxiété, de dépression ou une fragilité psychologique importante ?",
+      "options": [
+        "oui",
+        "non",
+        "je_prefere_ne_pas_repondre"
+      ],
+      "obligatoire": true
+    },
+    {
+      "id": "H1",
+      "bloc": "H",
+      "etape": "Projection",
+      "type": "choix_unique",
+      "libelle": "Souhaitez-vous retomber enceinte dans un futur proche ?",
+      "options": [
+        "oui",
+        "non",
+        "je_ne_sais_pas_encore"
+      ],
+      "obligatoire": true
+    },
+    {
+      "id": "H2",
+      "bloc": "H",
+      "etape": "Projection",
+      "type": "choix_unique",
+      "libelle": "Préférez-vous d'abord récupérer physiquement et émotionnellement avant de reparler projet bébé ?",
+      "options": [
+        "oui",
+        "non",
+        "je_ne_sais_pas"
+      ],
+      "obligatoire": true,
+      "condition_affichage": {
+        "H1": [
+          "oui",
+          "je_ne_sais_pas_encore"
+        ]
+      }
+    },
+    {
+      "id": "H3",
+      "bloc": "H",
+      "etape": "Projection",
+      "type": "choix_unique",
+      "libelle": "Avez-vous besoin d'un rendez-vous pour être rassurée avant une prochaine grossesse ?",
+      "options": [
+        "oui",
+        "non",
+        "peut_etre"
+      ],
+      "obligatoire": true,
+      "condition_affichage": {
+        "H1": [
+          "oui",
+          "je_ne_sais_pas_encore"
+        ]
+      }
+    },
+    {
+      "id": "H4",
+      "bloc": "H",
+      "etape": "Projection",
+      "type": "choix_unique",
+      "libelle": "Souhaitez-vous bénéficier d'un parcours prioritaire si une nouvelle grossesse démarre ?",
+      "options": [
+        "oui",
+        "non",
+        "a_rediscuter"
+      ],
+      "obligatoire": true,
+      "condition_affichage": {
+        "H1": [
+          "oui",
+          "je_ne_sais_pas_encore"
+        ]
+      }
+    },
+    {
+      "id": "H5",
+      "bloc": "H",
+      "etape": "Projection",
+      "type": "texte_court",
+      "libelle": "Quelle serait la chose la plus utile pour vous dans les prochaines semaines ?",
+      "obligatoire": false
+    },
+    {
+      "id": "P1",
+      "bloc": "P",
+      "etape": "Partenaire",
+      "type": "choix_unique",
+      "libelle": "Quel est votre lien avec la grossesse ou l'événement vécu ?",
+      "options": [
+        "partenaire",
+        "conjoint_e",
+        "autre_proche"
+      ],
+      "obligatoire": false,
+      "condition_affichage": {
+        "A1": [
+          "je_suis_le_partenaire"
+        ],
+        "A5": [
+          "moi_et_mon_partenaire",
+          "mon_partenaire_repond_pour_lui"
+        ]
+      }
+    },
+    {
+      "id": "P2",
+      "bloc": "P",
+      "etape": "Partenaire",
+      "type": "texte_court",
+      "libelle": "Comment vous sentez-vous aujourd'hui ?",
+      "obligatoire": false,
+      "condition_affichage": {
+        "A1": [
+          "je_suis_le_partenaire"
+        ],
+        "A5": [
+          "moi_et_mon_partenaire",
+          "mon_partenaire_repond_pour_lui"
+        ]
+      }
+    },
+    {
+      "id": "P3",
+      "bloc": "P",
+      "etape": "Partenaire",
+      "type": "choix_unique",
+      "libelle": "Avez-vous le sentiment de devoir rester fort et de ne pas avoir votre place ?",
+      "options": [
+        "oui",
+        "non",
+        "parfois"
+      ],
+      "obligatoire": false,
+      "condition_affichage": {
+        "A1": [
+          "je_suis_le_partenaire"
+        ],
+        "A5": [
+          "moi_et_mon_partenaire",
+          "mon_partenaire_repond_pour_lui"
+        ]
+      }
+    },
+    {
+      "id": "P4",
+      "bloc": "P",
+      "etape": "Partenaire",
+      "type": "choix_unique",
+      "libelle": "Souhaitez-vous un échange dédié pour vous, indépendamment du rendez-vous en couple ?",
+      "options": [
+        "oui",
+        "non",
+        "peut_etre"
+      ],
+      "obligatoire": false,
+      "condition_affichage": {
+        "A1": [
+          "je_suis_le_partenaire"
+        ],
+        "A5": [
+          "moi_et_mon_partenaire",
+          "mon_partenaire_repond_pour_lui"
+        ]
+      }
+    }
+  ],
+  "ordre_affichage": [
+    "A",
+    "B",
+    "C",
+    "D",
+    "E",
+    "F",
+    "G",
+    "H",
+    "P"
+  ],
+  "ecrans": [
+    {
+      "id": "accueil",
+      "titre": "Bienvenue",
+      "cta_principal": "Commencer",
+      "cta_secondaire": "Voir d’abord les premiers jours après le diagnostic"
+    },
+    {
+      "id": "cadre",
+      "titre": "Avant de commencer",
+      "points": [
+        "ce questionnaire vient en complément d’un suivi médical déjà en place",
+        "vos réponses sont enregistrées dans votre navigateur, vous pouvez reprendre plus tard",
+        "vous pouvez inclure votre partenaire dans le parcours"
+      ]
+    },
+    {
+      "id": "resultat",
+      "titre": "Votre prochaine étape recommandée"
+    },
+    {
+      "id": "timeline",
+      "titre": "Votre plan des prochaines semaines"
+    }
+  ]
+}

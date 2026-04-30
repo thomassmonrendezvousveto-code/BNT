@@ -1,0 +1,83 @@
+{
+  "evaluation_post_perte_priorite_psy": {
+    "request": {
+      "session_id": "sess_demo_001",
+      "reponses": {
+        "A1": "j_ai_vecu_une_fausse_couche_recemment",
+        "A3": "oui",
+        "A4": "moins_de_15_jours",
+        "A5": "moi_et_mon_partenaire",
+        "B1": "non",
+        "B2": "non",
+        "B3": "non",
+        "B4": "non",
+        "B5": "non",
+        "B6": "oui",
+        "B7": "non",
+        "C1": "oui",
+        "C2": "partiellement",
+        "C3": "traitement_medicamenteux",
+        "C4": "non",
+        "C5": "plutot_non",
+        "D1": 4,
+        "D2": "moderes",
+        "D3": "non",
+        "D4": "partiellement",
+        "D5": "beaucoup",
+        "D6": "oui",
+        "E1": "submergee",
+        "E2": "souvent",
+        "E3": "parfois",
+        "E4": "partiellement",
+        "E5": "beaucoup",
+        "E6": "beaucoup",
+        "E7": "oui",
+        "E8": "oui",
+        "F1": "c_est_complique",
+        "F2": "oui",
+        "F3": "oui",
+        "F4": "un_peu",
+        "F5": "oui",
+        "F6": "oui",
+        "G1": "non",
+        "G2": "1",
+        "G3": "non",
+        "G4": "non",
+        "G5": "oui",
+        "G6": "oui",
+        "H1": "non",
+        "H2": "oui",
+        "H3": "peut_etre",
+        "H4": "oui"
+      }
+    },
+    "expected_response": {
+      "orientation_principale": "priorite_psychologique",
+      "professionnel_principal": "BNT psychologue périnatal",
+      "delai": "24 h à 72 h",
+      "modules_secondaires": [
+        "module_couple_prioritaire",
+        "module_partenaire",
+        "module_psy_en_parallele"
+      ]
+    }
+  },
+  "evaluation_urgence_medicale": {
+    "request": {
+      "session_id": "sess_demo_002",
+      "reponses": {
+        "A1": "je_vis_une_fausse_couche_en_ce_moment",
+        "B1": "oui",
+        "B2": "non",
+        "B3": "non",
+        "B4": "non",
+        "B5": "non"
+      }
+    },
+    "expected_response": {
+      "orientation_principale": "urgence_medicale",
+      "professionnel_principal": "Urgences / gynécologie / maternité",
+      "delai": "immédiat"
+    }
+  }
+}
