@@ -22,23 +22,11 @@ type FaqSection = {
 
 const sections: FaqSection[] = [
   {
-    id: 'urgence',
-    kicker: 'Premier réflexe',
-    titre: 'Urgence et premiers gestes',
-    intro: 'Quand consulter, qui appeler, comment savoir si c’est grave.',
+    id: 'premiers-jours',
+    kicker: 'Premiers jours',
+    titre: 'Après le diagnostic',
+    intro: 'Vous venez d’apprendre. Voilà ce qui aide dans les premières heures et les premiers jours.',
     items: [
-      {
-        q: 'Je n’ose pas appeler le 15 — est-ce vraiment justifié ?',
-        a: 'Oui. Le SAMU est habitué à ce type d’appel et orientera selon la situation. Il vaut mieux appeler pour rien que ne pas appeler. Vous pouvez aussi appeler les urgences gynécologiques de votre maternité de référence.',
-      },
-      {
-        q: 'Quels sont les signes qui doivent vraiment m’alerter ?',
-        a: 'Saignements très abondants (qui remplissent une garniture par heure pendant plusieurs heures), douleur intense ou qui s’aggrave malgré du paracétamol, fièvre supérieure à 38°5, frissons, malaise, vertiges, sensation de faiblesse importante. Dans un seul de ces cas, appelez le 15 ou rendez-vous aux urgences gynécologiques.',
-      },
-      {
-        q: 'Et si on me dit que ce n’est rien ?',
-        a: 'C’est possible — et c’est rassurant. Mais le geste d’avoir vérifié n’est jamais inutile. Demandez quand même un compte-rendu écrit pour la suite.',
-      },
       {
         q: 'Mon diagnostic est confirmé, que faire dans les premières heures ?',
         a: [
@@ -48,7 +36,15 @@ const sections: FaqSection[] = [
       },
       {
         q: 'Combien de temps les saignements peuvent-ils durer ?',
-        a: 'Entre 3 jours et 2 semaines selon les situations. Si les saignements s’intensifient au lieu de diminuer après 48-72 h, ou s’ils deviennent malodorants, consultez sans attendre.',
+        a: 'Entre 3 jours et 2 semaines selon les situations. Si les saignements s’intensifient au lieu de diminuer après 48-72 h, ou s’ils deviennent malodorants, recontactez votre soignant·e sans attendre.',
+      },
+      {
+        q: 'Quelles sont les étapes du parcours BNT ensuite ?',
+        a: 'Après le diagnostic, le parcours BNT propose 6 étapes optionnelles, échelonnées sur les semaines et mois qui suivent : appel d’accueil avec une sage-femme, consultation médicale de relais, suivi psy individuel ou en groupe, accompagnement couple, et, si vous le souhaitez plus tard, préparation à une nouvelle grossesse. Vous choisissez où entrer, où vous arrêter, où reprendre.',
+      },
+      {
+        q: 'Je n’ai personne à qui en parler — qui peut m’écouter ?',
+        a: 'L’appel d’accueil de 30 minutes avec une sage-femme BNT est gratuit. Pas un interrogatoire, pas de questionnaire — juste être entendue. Vous pouvez le demander dans les 48 h via le formulaire de contact.',
       },
     ],
   },
