@@ -136,7 +136,14 @@ export default function PageComite() {
                     <p className="comite-label">Sa contribution au comité</p>
                     <p>{m.contribution}</p>
                   </div>
-                ) : null}
+                ) : (
+                  <div className="comite-section comite-todo">
+                    <p className="comite-label">Sa contribution au comité</p>
+                    <p>
+                      <em>Bio en cours de validation avec l’intéressé·e — publication imminente.</em>
+                    </p>
+                  </div>
+                )}
 
                 {m.citation ? (
                   <blockquote className="profile-quote comite-quote">
@@ -173,20 +180,19 @@ export default function PageComite() {
         </div>
       </section>
 
-      {/* ─── Charte de fonctionnement ─── */}
+      {/* ─── Cadre en construction (transparence) ─── */}
       <section className="section soft">
         <div className="container">
-          <p className="section-kicker">Cadre de fonctionnement</p>
-          <h2>Une charte publique en 10 articles.</h2>
-          <p style={{ maxWidth: 820, color: 'var(--muted)' }}>
-            Mission, composition, indépendance vis-à-vis de BNT, rythme des revues, indemnisation,
-            gouvernance, conflits d’intérêts, confidentialité : tout est écrit, daté, signé, opposable.
-            La charte est en cours de signature et sera révisée chaque année.
-          </p>
-          <div className="actions" style={{ marginTop: 22 }}>
-            <Link className="btn" href="/comite-scientifique/charte">
-              Lire la charte de fonctionnement →
-            </Link>
+          <div className="alert-medical">
+            <div className="alert-icon" aria-hidden="true">!</div>
+            <div>
+              <h3>Le cadre de fonctionnement se construit avec les premiers membres.</h3>
+              <p>
+                Rythme des revues, modalités d’indemnisation, gouvernance, processus de décision : tout cela
+                fait l’objet d’une discussion en ce moment même. Nous publierons ici la charte de fonctionnement
+                dès qu’elle aura été co-signée par l’ensemble du comité — probablement avant l’été 2026.
+              </p>
+            </div>
           </div>
         </div>
       </section>
