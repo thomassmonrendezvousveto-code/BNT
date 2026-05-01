@@ -871,6 +871,55 @@ figcaption {
   color: var(--muted);
 }
 
+/* Sommaire FAQ — grid de raccourcis vers les sections thématiques */
+.faq-toc {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+  gap: 14px;
+  margin-top: 32px;
+}
+
+.faq-toc-link {
+  display: flex;
+  flex-direction: column;
+  gap: 4px;
+  padding: 18px 20px;
+  background: var(--cream, #fff7f1);
+  border: 1px solid rgba(116, 123, 102, 0.17);
+  border-radius: 10px;
+  text-decoration: none;
+  color: var(--ink, #363838);
+  transition: transform 0.15s ease, box-shadow 0.15s ease, border-color 0.15s ease;
+}
+
+.faq-toc-link:hover {
+  transform: translateY(-2px);
+  border-color: var(--terracotta, #b86e55);
+  box-shadow: 0 6px 18px rgba(184, 110, 85, 0.12);
+}
+
+.faq-toc-kicker {
+  font-family: var(--font-sans), Helvetica, Arial, sans-serif;
+  font-size: 0.72rem;
+  font-weight: 700;
+  letter-spacing: 0.14em;
+  text-transform: uppercase;
+  color: var(--terracotta, #b86e55);
+}
+
+.faq-toc-titre {
+  font-family: var(--font-serif), 'Cormorant Garamond', Georgia, serif;
+  font-size: 1.18rem;
+  line-height: 1.25;
+}
+
+.faq-toc-count {
+  font-family: var(--font-sans), Helvetica, Arial, sans-serif;
+  font-size: 0.85rem;
+  color: var(--muted, #716d69);
+  margin-top: 2px;
+}
+
 .site-footer,
 .footer {
   padding: 42px 0;

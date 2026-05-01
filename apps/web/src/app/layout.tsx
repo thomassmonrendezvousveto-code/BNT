@@ -46,6 +46,7 @@ export default function RootLayout({ children }: Readonly<{ children: React.Reac
                 <Link href="/professionnels">Professionnels labellisés</Link>
                 <Link href="/ressources">Ressources</Link>
                 <Link href="/label">Le label BNT</Link>
+                <Link href="/faq">FAQ</Link>
                 <Link href="/a-propos">À propos</Link>
                 <Link href="/contact">Contact</Link>
               </nav>
@@ -95,6 +96,7 @@ export default function RootLayout({ children }: Readonly<{ children: React.Reac
                   <li><Link href="/a-propos">À propos</Link></li>
                   <li><Link href="/label">Le label BNT</Link></li>
                   <li><Link href="/comite-scientifique">Comité scientifique</Link></li>
+                  <li><Link href="/faq">Questions fréquentes</Link></li>
                   <li><Link href="/contact">Contact</Link></li>
                   <li><Link href="/fondateurs">Fondateurs</Link></li>
                 </ul>
