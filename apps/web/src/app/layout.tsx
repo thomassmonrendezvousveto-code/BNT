@@ -64,10 +64,6 @@ export default function RootLayout({ children }: Readonly<{ children: React.Reac
                   <br />
                   Information fiable, professionnel·les formé·es, soutien sans jugement.
                 </p>
-                <p className="footer-copy">
-                  Un projet fondé par Thomas Savey et Chloé Azpiazu. Indépendant, sans levée de fonds, attaché à la
-                  qualité du soin et à l’éthique.
-                </p>
               </div>
 
               <div className="footer-col">
