@@ -1,4 +1,7 @@
-import PDFDocument from 'pdfkit';
+// Import du bundle "standalone" qui inclut les fonts (Helvetica, etc.) inline.
+// Évite l'erreur Vercel "ENOENT Helvetica.afm" liée au bundling pnpm/Next.
+// @ts-expect-error - le sous-chemin standalone n'a pas de types
+import PDFDocument from 'pdfkit/js/pdfkit.standalone.js';
 import type { OrientationCode } from '@bnt/orientation-engine';
 import {
   ORIENTATIONS,
