@@ -49,7 +49,17 @@ export async function POST(request: Request) {
   }
 
   try {
-    const pdfBuffer = await buildKitPdf({ prenom, orientation, reponses });
+    // Tentative de génération PDF — si elle échoue (problème de fonts sur Vercel
+    // par exemple), on envoie quand même l'email avec un lien plutôt que de
+    // tout bloquer.
+    let pdfBuffer: Buffer | undefined;
+    try {
+      pdfBuffer = await buildKitPdf({ prenom, orientation, reponses });
+    } catch (pdfErr) {
+      console.warn('[api/kit-email] PDF generation failed, sending email without attachment:', pdfErr);
+      pdfBuffer = undefined;
+    }
+
     const result = await sendKitEmail({ to: email, prenom, orientation, reponses, pdfBuffer });
 
     if (!result.ok) {
@@ -59,7 +69,12 @@ export async function POST(request: Request) {
       );
     }
 
-    return NextResponse.json({ ok: true, channel: result.channel, id: result.id ?? null });
+    return NextResponse.json({
+      ok: true,
+      channel: result.channel,
+      id: result.id ?? null,
+      withAttachment: pdfBuffer !== undefined,
+    });
   } catch (err) {
     console.error('[api/kit-email] Exception:', err);
     const message = err instanceof Error ? err.message : 'Erreur serveur';

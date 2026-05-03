@@ -6,7 +6,7 @@ interface SendKitEmailOptions {
   prenom: string;
   orientation: OrientationCode;
   reponses: Record<string, string | number>;
-  pdfBuffer: Buffer;
+  pdfBuffer?: Buffer; // optionnel : si la génération PDF a échoué, on envoie quand même
 }
 
 interface SendResult {
@@ -190,7 +190,7 @@ export async function sendKitEmail({
     console.warn('[kit-email] RESEND_API_KEY absente — envoi simulé en console.');
     console.info(`[kit-email] To: ${to}`);
     console.info(`[kit-email] Subject: ${subject}`);
-    console.info(`[kit-email] PDF: ${pdfBuffer.length} bytes`);
+    console.info(`[kit-email] PDF: ${pdfBuffer ? `${pdfBuffer.length} bytes` : 'aucun'}`);
     return { ok: true, channel: 'console' };
   }
 
@@ -198,17 +198,20 @@ export async function sendKitEmail({
     // Import dynamique pour éviter de charger Resend si pas utilisé
     const { Resend } = await import('resend');
     const resend = new Resend(apiKey);
+    const attachments = pdfBuffer
+      ? [
+          {
+            filename: `Kit-Baby-Next-Time-${orientation}.pdf`,
+            content: pdfBuffer,
+          },
+        ]
+      : undefined;
     const result = await resend.emails.send({
       from,
       to,
       subject,
       html,
-      attachments: [
-        {
-          filename: `Kit-Baby-Next-Time-${orientation}.pdf`,
-          content: pdfBuffer,
-        },
-      ],
+      attachments,
     });
 
     if (result.error) {
